@@ -21,7 +21,6 @@ export class ProxyController {
       const contentType = response.headers['content-type'].split(';')[0];
       res.set(response.headers);
       res.type(contentType);
-      // console.log(response.body);
       res.json(response.body);
     };
   }

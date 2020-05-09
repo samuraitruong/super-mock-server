@@ -55,39 +55,50 @@ export class ProxyService {
       additionData: route,
     };
   }
+  private getForwardUrl(route: IRoute, originalUrl) {
+    let requestUrl = route.proxyUrl;
+    if (route.forwardPath) {
+      requestUrl = route.proxyUrl + originalUrl;
+      if (route.pathUpdates) {
+        for (const key in route.pathUpdates) {
+          if (route.pathUpdates.hasOwnProperty(key)) {
+            const value = route.pathUpdates[key];
+            requestUrl = requestUrl.replace(key, value);
+          }
+        }
+      }
+    }
+    return requestUrl;
+  }
+
+  private prepareForwardHeader(headers: any) {
+    [
+      'connection',
+      'host',
+      'cookie',
+      'accept-encoding',
+      'content-length',
+      'cache-control',
+    ].forEach((header) => {
+      delete headers[header];
+    });
+    return headers;
+  }
   private async proxyTunnel(
     requests: IRequestData,
     route: IRoute
   ): Promise<IResponseData> {
     try {
-      const headers = { ...requests.headers };
-      let requestUrl = route.proxyUrl;
-      if (route.forwardPath) {
-        requestUrl = route.proxyUrl + requests.originalUrl;
-      }
-
+      const headers = this.prepareForwardHeader(requests.headers);
+      const requestUrl = this.getForwardUrl(route, requests.originalUrl);
       this.logger.info('Original request URL: %s', requests.originalUrl);
       this.logger.info('Sending request using tunnel %s', requestUrl);
 
-      [
-        'connection',
-        'host',
-        'cookie',
-        'accept-encoding',
-        'content-length',
-        'cache-control',
-      ].forEach((header) => {
-        delete headers[header];
-      });
-
-      console.log('Header sent', headers);
-      // console.log(requests.body);
       let data = requests.body;
       if (headers['content-type'] === 'application/x-www-form-urlencoded') {
         data = qs.stringify(data);
         this.logger.info('urlencoded content sent %s', data);
       }
-
       const response = await this.http.request({
         url: requestUrl,
         method: requests.method as Method,
@@ -96,7 +107,7 @@ export class ProxyService {
         params: requests.query,
       });
       this.logger.info('Proxy alive %s', route.proxyUrl);
-      console.log('api response headers', response.headers);
+      this.logger.debug('api response headers', response.headers);
       return {
         targetUrl: requestUrl,
         body: response.data,

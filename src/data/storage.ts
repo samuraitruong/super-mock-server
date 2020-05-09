@@ -18,7 +18,9 @@ export class Storage {
     }
   }
   private getFileName(request: IRequestData) {
-    const requestHash = hash({ ...request, headers: {} });
+    const clone = { ...request };
+    clone.headers['authorization'] = null;
+    const requestHash = hash(clone);
     return path.join(this.rootFolder, requestHash + '.json');
   }
   private ensureFolder(folder) {
