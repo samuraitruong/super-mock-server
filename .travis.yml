@@ -7,7 +7,7 @@ before_install:
 script:
   - docker-compose build mockserver_14slim
 
-  deploy:
+deploy:
   provider: script
   script: bash deploy.sh
   on:
