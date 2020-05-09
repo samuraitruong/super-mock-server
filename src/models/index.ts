@@ -19,4 +19,5 @@ export interface IRoute {
   method: string[];
   proxyUrl: string;
   forwardPath?: boolean;
+  pathUpdates?: { [x: string]: string };
 }

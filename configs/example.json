@@ -1,0 +1,17 @@
+[
+  {
+    "reqUrl": "restapiexample/",
+    "method": ["get", "post"],
+    "proxyUrl": "http://dummy.restapiexample.com",
+    "forwardPath": true,
+    "pathUpdates": {
+      "restapiexample/": ""
+    }
+  },
+  {
+    "reqUrl": "api/",
+    "method": ["get", "post"],
+    "proxyUrl": "https://reqres.in",
+    "forwardPath": true
+  }
+]
