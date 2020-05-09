@@ -8,7 +8,8 @@ RUN npm install --production
 
 EXPOSE 80
 ENV PORT 80
-RUN mkdir /data/response
+RUN mkdir /data
+RUN mkdir /data/responses
 RUN mkdir /data/configs
 
 ENV NODE_ENV production
