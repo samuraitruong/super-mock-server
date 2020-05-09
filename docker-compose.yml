@@ -1,0 +1,21 @@
+version: '3.2'
+services:
+  mockserver_dev:
+    image: mockserver_dev
+    build:
+      context: .
+      dockerfile: Dockerfile_dev
+      args:
+        buildno: 1
+    volumes:
+      - .:/usr/app
+    environment:
+      PORT: 4040
+    ports:
+      - '4040:4040'
+
+  mockserver_14slim:
+    image: mockserver
+    build:
+      context: .
+      dockerfile: Dockerfile_node14

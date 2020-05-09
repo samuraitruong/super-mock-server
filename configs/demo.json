@@ -1,0 +1,12 @@
+[
+  {
+    "reqUrl": "demo/posts",
+    "method": ["get", "post"],
+    "proxyUrl": "https://my-json-server.typicode.com/typicode/demo/posts"
+  },
+  {
+    "reqUrl": "demo/comments",
+    "method": ["get", "post"],
+    "proxyUrl": "https://my-json-server.typicode.com/typicode/demo/comments"
+  }
+]

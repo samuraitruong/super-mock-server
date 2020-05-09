@@ -1,0 +1,9 @@
+{
+  "watch": ["dist"],
+  "ext": "js",
+  "ignore": [],
+  "exec": "node --experimental-modules --es-module-specifier-resolution=node ./dist",
+  "execMap": {
+    "ts": "node --require ts-node/register"
+  }
+}
