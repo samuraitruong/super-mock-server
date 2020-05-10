@@ -1,0 +1,26 @@
+FROM node:lts-slim
+
+WORKDIR /usr/app
+
+COPY . .
+
+RUN npm install
+
+EXPOSE 80
+ENV PORT 80
+RUN mkdir /data
+RUN mkdir /data/responses
+RUN mkdir /data/configs
+
+ENV NODE_ENV production
+ENV STORAGE_PATH /data/responses
+ENV CONFIG_PATH /data/configs
+
+COPY ./configs/*.json /data/configs/
+
+RUN npm run build
+
+# Remove the devDependencies after build finished
+RUN npm prune
+
+CMD ["npm", "start"]

@@ -8,6 +8,7 @@ before_deploy:
   - export IMAGE_TAG="$(git rev-parse --short ${TRAVIS_COMMIT})"
 script:
   - docker-compose build mockserver_14slim
+  - docker-compose build mockserver_lts
 
 deploy:
   provider: script
