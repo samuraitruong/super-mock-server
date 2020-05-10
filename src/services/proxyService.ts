@@ -22,15 +22,15 @@ export class ProxyService {
     );
 
     if (route) {
-      this.logger.info('found match route , execute tunnel:', {
-        requests,
+      this.logger.info('Found matched route, tunnel request using route:', {
         route,
+        requests,
       });
 
-      const response = await this.proxyTunnel(requests, route);
-      if (response) {
-        this.storage.saveData(requests, response);
-        return response;
+      const responseData = await this.proxyTunnel(requests, route);
+      if (responseData) {
+        this.storage.saveData(requests, responseData);
+        return responseData;
       } else {
         this.logger.info(
           'Could not retrieve data from proxy, using cache data instead'
@@ -46,13 +46,16 @@ export class ProxyService {
       }
     }
     this.logger.warn('No custom route for %s', requests.originalUrl);
+
     // Read data from storage data
+    // TODO return default data
     return {
       ...requests,
       targetUrl: '',
       isProxied: true,
       dateDate: new Date(),
       additionData: route,
+      statusCode: 200,
     };
   }
   private getForwardUrl(route: IRoute, originalUrl) {
@@ -114,6 +117,7 @@ export class ProxyService {
         headers: response.headers,
         isProxied: true,
         dateDate: new Date(),
+        statusCode: response.status,
       };
     } catch (err) {
       this.logger.error('Tunnel Error %s', err.message || '', err);

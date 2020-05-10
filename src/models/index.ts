@@ -12,6 +12,7 @@ export interface IResponseData extends IProxyData {
   isProxied: boolean;
   dateDate: Date;
   additionData?: any;
+  statusCode: number;
 }
 
 export interface IRoute {

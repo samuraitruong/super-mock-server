@@ -9,6 +9,12 @@ export class Storage {
   }
   public saveData(request: IRequestData, response: IResponseData) {
     fs.writeJSONSync(this.getFileName(request), response);
+    fs.writeJSONSync(this.getFileName(request, response.statusCode), response);
+
+    fs.writeJSONSync(
+      this.getFileName({ requestUrl: request.originalUrl }),
+      response
+    );
   }
   public getData(request: IRequestData) {
     try {
@@ -17,10 +23,18 @@ export class Storage {
       return null;
     }
   }
-  private getFileName(request: IRequestData) {
+  private getFileName(request: any, statusCode = null) {
     const clone = { ...request };
-    clone.headers['authorization'] = null;
+    if (clone.headers) {
+      clone.headers['authorization'] = null;
+    }
     const requestHash = hash(clone);
+    if (statusCode) {
+      return path.join(
+        this.rootFolder,
+        requestHash + '_' + statusCode + '.json'
+      );
+    }
     return path.join(this.rootFolder, requestHash + '.json');
   }
   private ensureFolder(folder) {
