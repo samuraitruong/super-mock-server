@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Proxy Test reqres.in tests get() /api/users should matches with snapshot data with resposne code 200 1`] = `
+Object {
+  "ad": Object {
+    "company": "StatusCode Weekly",
+    "text": "A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things.",
+    "url": "http://statuscode.org/",
+  },
+  "data": Array [
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg",
+      "email": "george.bluth@reqres.in",
+      "first_name": "George",
+      "id": 1,
+      "last_name": "Bluth",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg",
+      "email": "janet.weaver@reqres.in",
+      "first_name": "Janet",
+      "id": 2,
+      "last_name": "Weaver",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/olegpogodaev/128.jpg",
+      "email": "emma.wong@reqres.in",
+      "first_name": "Emma",
+      "id": 3,
+      "last_name": "Wong",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg",
+      "email": "eve.holt@reqres.in",
+      "first_name": "Eve",
+      "id": 4,
+      "last_name": "Holt",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/stephenmoon/128.jpg",
+      "email": "charles.morris@reqres.in",
+      "first_name": "Charles",
+      "id": 5,
+      "last_name": "Morris",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/bigmancho/128.jpg",
+      "email": "tracey.ramos@reqres.in",
+      "first_name": "Tracey",
+      "id": 6,
+      "last_name": "Ramos",
+    },
+  ],
+  "page": 1,
+  "per_page": 6,
+  "total": 12,
+  "total_pages": 2,
+}
+`;
+
+exports[`Proxy Test reqres.in tests get() /api/users/2 should matches with snapshot data with resposne code 200 1`] = `
+Object {
+  "ad": Object {
+    "company": "StatusCode Weekly",
+    "text": "A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things.",
+    "url": "http://statuscode.org/",
+  },
+  "data": Object {
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg",
+    "email": "janet.weaver@reqres.in",
+    "first_name": "Janet",
+    "id": 2,
+    "last_name": "Weaver",
+  },
+}
+`;
+
+exports[`Proxy Test reqres.in tests get() /api/users?page=2 should matches with snapshot data with resposne code 200 1`] = `
+Object {
+  "ad": Object {
+    "company": "StatusCode Weekly",
+    "text": "A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things.",
+    "url": "http://statuscode.org/",
+  },
+  "data": Array [
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg",
+      "email": "michael.lawson@reqres.in",
+      "first_name": "Michael",
+      "id": 7,
+      "last_name": "Lawson",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/araa3185/128.jpg",
+      "email": "lindsay.ferguson@reqres.in",
+      "first_name": "Lindsay",
+      "id": 8,
+      "last_name": "Ferguson",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/vivekprvr/128.jpg",
+      "email": "tobias.funke@reqres.in",
+      "first_name": "Tobias",
+      "id": 9,
+      "last_name": "Funke",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/russoedu/128.jpg",
+      "email": "byron.fields@reqres.in",
+      "first_name": "Byron",
+      "id": 10,
+      "last_name": "Fields",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/mrmoiree/128.jpg",
+      "email": "george.edwards@reqres.in",
+      "first_name": "George",
+      "id": 11,
+      "last_name": "Edwards",
+    },
+    Object {
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg",
+      "email": "rachel.howell@reqres.in",
+      "first_name": "Rachel",
+      "id": 12,
+      "last_name": "Howell",
+    },
+  ],
+  "page": 2,
+  "per_page": 6,
+  "total": 12,
+  "total_pages": 2,
+}
+`;
+
+exports[`Proxy Test reqres.in tests post() /api/users should matches with snapshot data with resposne code 200, data= {"job": "leader", "name": "morpheus"} 1`] = `
+Object {
+  "createdAt": Any<String>,
+  "id": Any<String>,
+}
+`;
+
+exports[`Proxy Test restapisample/ tests get(/restapiexample/api/v1/employee/1) should successful and match with snapshot data 1`] = `
+Object {
+  "body": "some comment",
+  "id": 1,
+  "postId": 1,
+}
+`;
+
+exports[`Proxy Test restapisample/ tests get(/restapiexample/api/v1/employees) should successful and match with snapshot data 1`] = `
+Object {
+  "body": "some comment",
+  "id": 1,
+  "postId": 1,
+}
+`;
+
+exports[`Proxy Test typicode server tests get() /demo/comments should matches with snapshot data 1`] = `
+Object {
+  "0": Object {
+    "body": "some comment",
+    "id": 1,
+    "postId": 1,
+  },
+  "1": Object {
+    "body": "some comment",
+    "id": 2,
+    "postId": 1,
+  },
+}
+`;
+
+exports[`Proxy Test typicode server tests get() /demo/posts should matches with snapshot data 1`] = `
+Object {
+  "0": Object {
+    "body": "some comment",
+    "id": 1,
+    "postId": 1,
+  },
+  "1": Object {
+    "body": "some comment",
+    "id": 2,
+    "postId": 1,
+  },
+}
+`;
+
+exports[`Proxy Test typicode server tests post() /demo/posts should matches with snapshot data 1`] = `
+Object {
+  "body": "some comment",
+  "id": 1,
+  "postId": 1,
+}
+`;
