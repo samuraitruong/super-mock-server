@@ -5,7 +5,7 @@ echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 docker tag mockserver:latest samuraitruong/mockserver:latest
 docker push samuraitruong/mockserver:latest
 
-if [ "$TRAVIS_TAG" ]
+if [ "$TRAVIS_TAG" ]; then
   docker tag mockserver:latest samuraitruong/mockserver:$IMAGE_TAG
   docker push samuraitruong/mockserver:$IMAGE_TAG
   docker tag mockserver:latest samuraitruong/mockserver:$TRAVIS_TAG
