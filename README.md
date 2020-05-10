@@ -80,6 +80,7 @@ npm run dev:docker
 ### Test local development
 
 ```bash
+
  curl http://localhost:4040/demo/comments
 
 ```
