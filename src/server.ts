@@ -5,7 +5,7 @@ import { ProxyService } from './services/proxyService';
 import bodyParser from 'body-parser';
 
 export class ApiServer {
-  private app: Application;
+  public app: Application;
   private logger: Logger;
   private proxyController: ProxyController;
 

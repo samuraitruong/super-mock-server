@@ -24,7 +24,6 @@ export class ProxyService {
     if (route) {
       this.logger.info('Found matched route, tunnel request using route:', {
         route,
-        requests,
       });
 
       const responseData = await this.proxyTunnel(requests, route);
@@ -44,8 +43,9 @@ export class ProxyService {
           );
         }
       }
+    } else {
+      this.logger.warn('No custom route for %s', requests.originalUrl);
     }
-    this.logger.warn('No custom route for %s', requests.originalUrl);
 
     // Read data from storage data
     // TODO return default data
@@ -96,7 +96,6 @@ export class ProxyService {
       const requestUrl = this.getForwardUrl(route, requests.originalUrl);
       this.logger.info('Original request URL: %s', requests.originalUrl);
       this.logger.info('Sending request using tunnel %s', requestUrl);
-
       let data = requests.body;
       if (headers['content-type'] === 'application/x-www-form-urlencoded') {
         data = qs.stringify(data);

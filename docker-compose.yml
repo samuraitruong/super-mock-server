@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile_node14
   mockserver_lts:
-    image: mockserver@lts
+    image: mockserver:lts
     build:
       context: .
       dockerfile: Dockerfile

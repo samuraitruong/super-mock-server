@@ -4,3 +4,4 @@ node_modules/
 dist/
 configs/private.*.json
 private.*.json
+coverage/
