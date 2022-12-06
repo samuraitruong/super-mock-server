@@ -23,7 +23,7 @@
     "fs-extra": "^9.0.0",
     "mongodb": "^3.5.7",
     "object-hash": "^2.0.3",
-    "qs": "^6.9.4",
+    "qs": "^6.9.7",
     "winston": "^3.2.1"
   },
   "devDependencies": {
